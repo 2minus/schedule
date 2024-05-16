@@ -19,13 +19,13 @@ public class ScheduleController {
 
     // 1단계 : Create - 일정 작성
     @PostMapping("/schedules")
-    public ScheduleResponseDto createSchedule(@RequestBody ScheduleRequestDto requestDto) {
-        return scheduleService.createSchedule(requestDto);
+    public ScheduleResponseDto createSchedule() {
+        return scheduleService.createSchedule();
     }
 
     // 2단계 : Read - 식별자로 선택한 일정 조회
     @GetMapping("/schedules")
-    public ScheduleResponseDto getSchedules(@PathVariable Long id) {
+    public ScheduleResponseDto getSchedules(@RequestParam Long id) {
         return scheduleService.getSchedule(id);
     }
 
@@ -37,14 +37,14 @@ public class ScheduleController {
 
     // 4단계 : Update - 일정 수정
     @PutMapping("/schedules")
-    public Long updateSchedule(@PathVariable Long id, @RequestBody ScheduleRequestDto requestDto) {
-        return scheduleService.updateSchedule(id, requestDto);
+    public Long updateSchedule(@RequestParam Long id) {
+        return scheduleService.updateSchedule(id);
     }
 
     // 5단계 : Delete - 일정 삭제
     @DeleteMapping("/schedules")
-    public Long deleteSchedule(@PathVariable Long id, @RequestBody ScheduleRequestDto requestDto) {
-        return scheduleService.deleteSchedule(id, requestDto);
+    public Long deleteSchedule(@RequestParam Long id) {
+        return scheduleService.deleteSchedule(id);
     }
 
 }
